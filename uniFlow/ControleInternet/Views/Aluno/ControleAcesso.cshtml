@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "ControleAcesso";
+    Layout = "~/Views/Shared/_LayoutSistema.cshtml";
+}
+
+<!-- Centered forms -->
+<div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-10">
+
+        <form id="frmListarUsuario" class="form-validate-jquery" action="#" novalidate="novalidate">
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                            <h5 class="panel-title">Controle de Acesso</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input id="txtPesquisarControleAcesso" type="text" class="form-control" placeholder="Pesquisar" oninput="FiltrarTabelaControleAcesso()">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+
+                                        <select id="txtTipoDePesquisaControleAcesso" class="form-control">
+                                            <option value="0">Nome</option>
+                                            <option value="1">RA</option>
+                                            <option value="2">Série</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <!-- Scrollable table -->
+                                <div id="divAlunoListagem" class="panel panel-flat">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Aluno</h5>
+                                    </div>
+
+                                    <div class="table-responsive pre-scrollable" style="overflow-y: auto;">
+                                        <table class="table" id="tableControleAcesso">
+                                            <thead>
+                                                <tr>
+                                                    <th>RA</th>
+                                                    <th>Nome</th>
+                                                    <th>Série</th>
+                                                    <th>Data Entrada</th>
+                                                    <th>Data Saída</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- /scrollable table -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- /form centered -->

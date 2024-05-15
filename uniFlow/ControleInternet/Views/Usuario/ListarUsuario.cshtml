@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "ListarUsuario";
+    Layout = "~/Views/Shared/_LayoutSistema.cshtml";
+}
+
+<!-- Centered forms -->
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+
+        <form id="frmListarUsuario" class="form-validate-jquery" action="#" novalidate="novalidate">
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <h5 class="panel-title">Listagem de Usuários</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input id="txtPesquisarListagemUsuario" type="text" class="form-control" placeholder="Pesquisar" oninput="FiltrarTabela()">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+
+                                        <select id="txtTipoDePesquisaListagemUsuario" class="form-control">
+                                            <option value="0">Nome</option>
+                                            <option value="1">CPF</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <!-- Scrollable table -->
+                                <div id="divUsuarioListagem" class="panel panel-flat">
+                                    <div class="panel-heading">
+                                        <h5 class="panel-title">Usuário</h5>
+                                    </div>
+
+                                    <div class="table-responsive pre-scrollable" style="overflow-y: auto;">
+                                        <table class="table" id="tableUsuarioListagem">
+                                            <thead>
+                                                <tr>
+                                                    <th>CPF</th>
+                                                    <th>Nome</th>
+                                                    <th>Telefone</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- /scrollable table -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- /form centered -->

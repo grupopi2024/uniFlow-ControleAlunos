@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "ControleDeEntrada";
+    Layout = "~/Views/Shared/_LayoutSistema.cshtml";
+}
+
+<body>
+    <h2>Selecione a Série:</h2>
+    <form id="serieForm">
+        <input type="radio" id="serie1" name="serie" value="Série 1" onchange="updateAlunos()"> <label for="serie1">Série 1</label><br>
+        <input type="radio" id="serie2" name="serie" value="Série 2" onchange="updateAlunos()"> <label for="serie2">Série 2</label><br>
+        <!-- Adicione mais opções de série conforme necessário -->
+    </form>
+
+    <h2 id="alunosHeader" class="hidden">Lista de Alunos:</h2>
+    <form id="alunosForm" class="hidden">
+        <!-- Lista de alunos será preenchida dinamicamente com JavaScript -->
+    </form>
+
+    <script>
+        var alunosPorSerie = {
+            "Série 1": ["Aluno 1A", "Aluno 1B", "Aluno 1C"],
+            "Série 2": ["Aluno 2A", "Aluno 2B", "Aluno 2C"]
+            // Adicione mais séries e seus respectivos alunos conforme necessário
+        };
+
+        function updateAlunos() {
+            var serieSelecionada = document.querySelector('input[name="serie"]:checked').value;
+            var alunosDaSerie = alunosPorSerie[serieSelecionada];
+            var alunosForm = document.getElementById("alunosForm");
+            var alunosHeader = document.getElementById("alunosHeader");
+
+            // Limpa a lista de alunos antes de adicionar novos
+            alunosForm.innerHTML = "";
+
+            alunosDaSerie.forEach(function (aluno) {
+                var input = document.createElement("input");
+                input.setAttribute("type", "checkbox");
+                input.setAttribute("id", aluno);
+                input.setAttribute("name", "alunos");
+                input.setAttribute("value", aluno);
+
+                var label = document.createElement("label");
+                label.setAttribute("for", aluno);
+                label.textContent = aluno;
+
+                alunosForm.appendChild(input);
+                alunosForm.appendChild(label);
+                alunosForm.appendChild(document.createElement("br"));
+            });
+
+            // Mostra a lista de alunos após selecionar a série
+            alunosForm.classList.remove("hidden");
+            alunosHeader.classList.remove("hidden");
+        }
+    </script>
+</body>

@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "EditarAluno";
+    Layout = "~/Views/Shared/_LayoutSistema.cshtml";
+}
+@{ var user = (ControleInternet.Models.Aluno)HttpContext.Current.Session["ALUNOEDITAR"];}
+<!-- Content area -->
+<div class="content">
+
+    <!-- Basic setup -->
+    <div class="panel panel-white">
+        <div class="panel-heading">
+            <h6 class="panel-title">Editar Aluno</h6>
+
+        </div>
+
+        <form class="form-basic">
+
+            <div class="content">
+                <h6 class="form-wizard-title text-semibold">
+
+                    Informações Pessoais
+                </h6>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nome Completo:</label>
+                            <input id="txtNomeCompletoEditarAluno" type="text" name="txtNomeCompletoEditarAluno" class="form-control" placeholder="nome completo do aluno" value="@user.NomeCompleto">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>RA:</label>
+                            <input value="@user.RA" id="txtRegistroAcademicoEditar" type="text" name="txtRegistroAcademicoEditar" class="form-control" placeholder="registro academico sem dígito" disabled>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Telefone:</label>
+                            <input value="@user.Telefone" id="txtTelefoneEditarAluno" type="text" name="txtTelefoneEditarAluno" class="form-control" placeholder="(99) 9 9999-9999" oninput="formataMascaraEditarTelefoneAluno()">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>E-mail:</label>
+                            <input value="@user.Email" id="txtEmailEditarAluno" type="email" name="txtEmailEditarAluno" class="form-control" placeholder="email cadastrado" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <label>Série:</label>
+                        <select id="slcSerieAlunoEditar" name="slcSerieAlunoEditar" class="form-control">
+                            <option value="0">1ª Série</option>
+                            <option value="1">2ª Série</option>
+                            <option value="2">3ª Série</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="form-wizard-actions">
+
+            <button id="btnConfirmarEditarAluno" type="button" class="btn btn-primary sweet-btn" onclick="edicaoAluno()">
+                Salvar
+            </button>
+
+
+            <button id="btnCancelarEditarAluno" type="button" class="btn btn-danger sweet-btn" href="@Url.Action("Index", "Principal")">
+                Cancelar
+            </button>
+
+        </div>
+    </div>
+</div>
+<!-- /content area -->

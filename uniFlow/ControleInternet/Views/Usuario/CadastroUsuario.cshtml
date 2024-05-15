@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "CadastroUsuario";
+    Layout = "~/Views/Shared/_LayoutSistema.cshtml";
+}
+
+@*@{ var user = (ControleInternet.Models.Usuario)HttpContext.Current.Session["USUARIO"];}*@
+
+<!-- Content area -->
+<div class="content">
+
+    <!-- Basic setup -->
+    <div class="panel panel-white">
+        <div class="panel-heading">
+            <h6 class="panel-title">Cadastro de Usuários</h6>
+            @*<div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="collapse"></a></li>
+                        <li><a data-action="reload"></a></li>
+                        <li><a data-action="close"></a></li>
+                    </ul>
+                </div>*@
+        </div>
+
+        <form class="form-basic">
+
+            <div class="content">
+                <h6 class="form-wizard-title text-semibold">
+                    @*<span class="form-wizard-count">1</span>
+                        <i class="fa fa-user-plus"></i>*@
+                    Informações Pessoais
+                </h6>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nome Completo:</label>
+                            <input id="txtNomeCompletoCadastroUsuario" type="text" name="txtNomeCompletoCadastroUsuario" class="form-control" placeholder="nome completo do usuário">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nome de Usuário:</label>
+                            <input id="txtNomeCadastroUsuario" type="text" name="txtNomeCadastroUsuario" class="form-control" placeholder="nome do usuário">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Telefone:</label>
+                            <input id="txtTelefoneCadastroUsuario" type="text" name="txtTelefoneCadastroUsuario" class="form-control" placeholder="(99) 9 9999-9999" oninput="formataMascaraCadastroTelefoneUsuario()">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>E-mail:</label>
+                            <input id="txtEmailCadastroUsuario" type="email" name="txtEmailCadastroUsuario" class="form-control" placeholder="email cadastrado" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>CPF:</label>
+                            <input id="txtCpfCadastroUsuario" type="email" name="txtCpfCadastroUsuario" class="form-control" placeholder="CPF cadastrado" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Senha:</label>
+                            <input id="txtSenhaCadastroUsuario" type="password" name="txtSenhaCadastroUsuario" class="form-control" placeholder="Informe a Senha" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Confirmar Senha:</label>
+                            <input id="txtConfirmarSenhaCadastroUsuario" type="password" name="txtConfirmarSenhaCadastroUsuario" class="form-control" placeholder="repita a senha" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2">
+                        <label>Função:</label>
+                        <select id="slcFuncaoCadastroUsuario" name="slcFuncaoCadastroUsuario" class="form-control">
+                            <option value="0">Administrador</option>
+                            <option value="1">Monitor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="form-wizard-actions">
+
+            <button id="btnConfirmarCadastroUsuario" type="button" class="btn btn-primary sweet-btn" onclick="cadastrarUsuario()">
+                Cadastrar
+            </button>
+            <button id="btnConfirmarEditarUsuario" type="button" class="btn btn-primary sweet-btn" onclick="editarUsuario()" style="display:none;">
+                Editar
+            </button>
+            <button id="btnCancelarCadastroUsuario" type="button" class="btn btn-danger sweet-btn" href="@Url.Action("Index", "Principal")">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</div>
+<!-- /content area -->

@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Cadastrar";
+    Layout = "~/Views/Shared/_LayoutSistema.cshtml";
+}
+
+<!-- Content area -->
+<div class="content">
+
+    <!-- Basic setup -->
+    <div class="panel panel-white">
+        <div class="panel-heading">
+            <h6 class="panel-title">Cadastro de Alunos</h6>
+
+        </div>
+
+        <form class="form-basic">
+
+            <div class="content">
+                <h6 class="form-wizard-title text-semibold">
+
+                    Informações Pessoais
+                </h6>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nome Completo:</label>
+                            <input id="txtNomeCompletoCadastroAluno" type="text" name="txtNomeCompletoCadastroAluno" class="form-control" placeholder="nome completo do aluno">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>RA:</label>
+                            <input id="txtRegistroAcademico" type="text" name="txtRegistroAcademico" class="form-control" placeholder="registro academico sem dígito">
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Telefone:</label>
+                            <input id="txtTelefoneCadastroAluno" type="text" name="txtTelefoneCadastroAluno" class="form-control" placeholder="(99) 9 9999-9999" oninput="formataMascaraCadastroTelefoneAluno()">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>E-mail:</label>
+                            <input id="txtEmailCadastroAluno" type="email" name="txtEmailCadastroAluno" class="form-control" placeholder="email cadastrado" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-2">
+                        <label>Série:</label>
+                        <select id="slcSerieAluno" name="slcSerieAluno" class="form-control">
+                            <option value="0">1ª Série</option>
+                            <option value="1">2ª Série</option>
+                            <option value="2">3ª Série</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+        <div class="form-wizard-actions">
+
+            <button id="btnConfirmarCadastroAluno" type="button" class="btn btn-primary sweet-btn" onclick="cadastrarAluno()">
+                Cadastrar
+            </button>
+
+
+            <button id="btnCancelarCadastroAluno" type="button" class="btn btn-danger sweet-btn" href="@Url.Action("Index", "Principal")">
+                Cancelar
+            </button>
+
+        </div>
+    </div>
+</div>
+<!-- /content area -->

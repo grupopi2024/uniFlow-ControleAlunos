@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "EditarUsuario";
+    Layout = "~/Views/Shared/_LayoutSistema.cshtml";
+}
+
+@{ var user = (ControleInternet.Models.Usuario)HttpContext.Current.Session["USUARIOEDITAR"];}
+
+<!-- Content area -->
+<div class="content">
+
+    <!-- Basic setup -->
+    <div class="panel panel-white">
+        <div class="panel-heading">
+            <h6 class="panel-title">Alteração de Usuários</h6>
+        </div>
+
+        <form class="form-basic">
+
+            <div class="content">
+                <h6 class="form-wizard-title text-semibold">
+                    Informações Pessoais
+                </h6>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nome Completo:</label>
+                            <input id="txtNomeCompletoEditarUsuario" type="text" name="txtNomeCompletoEditarUsuario" class="form-control" placeholder="nome completo do usuário" value="@user.NomeCompleto">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Nome de Usuário:</label>
+                            <input id="txtNomeEditarUsuario" type="text" name="txtNomeEditarUsuario" class="form-control" placeholder="nome do usuário" value="@user.Nome">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>Telefone:</label>
+                            <input id="txtTelefoneEditarUsuario" type="text" name="txtTelefoneEditarUsuario" class="form-control" placeholder="(99) 9 9999-9999" oninput="formataMascaraEditarTelefoneUsuario()" value="@user.Telefone">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>E-mail:</label>
+                            <input id="txtEmailEditarUsuario" type="email" name="txtEmailEditarUsuario" class="form-control" placeholder="email cadastrado" value="@user.Email" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label>CPF:</label>
+                            <input id="txtCpfEditarUsuario" type="email" name="txtCpfEditarUsuario" class="form-control" placeholder="CPF cadastrado" value="@user.CPF" disabled/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Senha:</label>
+                            <input id="txtSenhaEditarUsuario" type="password" name="txtSenhaEditarUsuario" class="form-control" placeholder="Informe a Senha" value="@user.Senha" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Confirmar Senha:</label>
+                            <input id="txtConfirmarSenhaEditarUsuario" type="password" name="txtConfirmarSenhaEditarUsuario" class="form-control" placeholder="repita a senha" value="@user.Senha" />
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-2">
+                        <label>Função:</label>
+                        <select id="slcFuncaoEditarUsuario" name="slcFuncaoEditarUsuario" class="form-control">
+                            <option value="0">Administrador</option>
+                            <option value="1">Monitor</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="form-wizard-actions">
+            <button id="btnConfirmarEditarUsuario" type="button" class="btn btn-primary sweet-btn" onclick="edicaoUsuario()">
+                Salvar
+            </button>
+            <button id="btnCancelarEditarUsuario" type="button" class="btn btn-danger sweet-btn" href="@Url.Action("Index", "Principal")">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</div>
+<!-- /content area -->

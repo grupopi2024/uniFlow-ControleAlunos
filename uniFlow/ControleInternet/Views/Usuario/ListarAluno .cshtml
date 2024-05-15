@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "ListarAluno";
+    Layout = "~/Views/Shared/_LayoutSistema.cshtml";
+}
+
+
+<!-- Basic datatable -->
+<div class="panel panel-flat">
+    <div class="panel-heading">
+        <h5 class="panel-title">Lista Aluno</h5>
+        <div class="heading-elements">
+            <ul class="icons-list">
+                <li><a data-action="collapse"></a></li>
+                <li><a data-action="reload"></a></li>
+                <li><a data-action="close"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        @*<code>DataTables</code>*@
+
+    </div>
+    <input type="search" class="" placeholder="Buscar..." aria-controls="DataTables_Table_0">
+
+    <table class="table datatable-basic">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>RA</th>
+                <th>Série</th>
+                <th>Data</th>
+                <th>Hora</th>
+                <th>Status</th>
+                <th class="text-center">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Joãozinho</td>
+                <td>12345</td>
+                <td>1º Ano A</td>
+                <td>22 Jun 2000</td>
+                <td>18:30 h</td>
+                <td><span class="label label-success">Presente</span></td>
+                <td class="text-center">
+                    <ul class="icons-list">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-menu9"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Pedrinho</td>
+                <td>54321</td>
+                <td>2º Ano A</td>
+                <td>12 Fev 2000</td>
+                <td>18:35 h</td>
+                <td><span class="label label-default">Ausente</span></td>
+                <td class="text-center">
+                    <ul class="icons-list">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-menu9"></i>
+                            </a>
+
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
+                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
+                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!-- /basic datatable -->

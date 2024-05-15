@@ -1,0 +1,136 @@
+﻿
+@{
+    ViewBag.Title = "Principal";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content area -->
+<div class="content pb-20">
+
+    <!-- Tabbed form -->
+    <div class="tabbable panel login-form width-400">
+        <ul class="nav nav-tabs nav-justified">
+            <li class="active"><a href="#basic-tab1" data-toggle="tab"><h6>Login</h6></a></li>
+            <li><a href="#basic-tab2" data-toggle="tab"><h6>Registrar-se</h6></a></li>
+        </ul>
+        <div class="tab-content panel-body">
+            <div class="tab-pane fade in active" id="basic-tab1">
+                <center><h1>Bem Vindo!</h1></center>
+                <center><img src="~/assets/images/logo_icon_dark.png" width="150"></center>
+                
+                <form>
+                    <div class="text-center">
+                        
+                        <br />
+                        <br />
+                        <br />
+                        <div class=""><i class=""></i></div>
+                        <h5 class="content-group"> <small class="display-block"></small></h5>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input id="txtEmailLogin" type="text" class="form-control" placeholder="E-mail" required="required">
+                        <div class="form-control-feedback">
+                            <i class="icon-user text-muted"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input id="txtSenhaLogin" type="password" class="form-control" placeholder="Senha" required="required">
+                        <div class="form-control-feedback">
+                            <i class="icon-lock2 text-muted"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group login-options">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" class="styled" checked="checked">
+                                    Lembrar
+                                </label>
+                            </div>
+
+                            <div class="col-sm-6 text-right">
+                                <a href="#">Recuperar Senha?</a>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input id="btnEntrar" type="button" class="btn bg-blue btn-block" value="ENTRAR" />
+                        @*<button type="submit" class="btn bg-blue btn-block">Login <i class="icon-arrow-right14 position-right"></i></button>*@
+                    </div>
+                </form>
+
+                @*-------------------------------------------------------------------------------------------------------------------------*@
+
+               
+
+                @*<span class="help-block text-center no-margin">Ao continuar, você confirma que leu nossos <a href="#">Termos &amp; Condições</a> e <a href="#">Política de Cookies</a></span>*@
+            </div>
+            <div class="tab-pane fade" id="basic-tab2">
+                <form>
+                    <div class="text-center">
+                        <center><img src="~/assets/images/logo_icon_dark.png" width="150"></center>
+                        <h5 class="content-group">Criar nova conta <small class="display-block">Todos os campos são necessários</small></h5>
+                        <br />
+                        <br />
+                        <br />
+
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input id="txtNameRegister" type="text" class="form-control" placeholder="Seu nome">
+                        <div class="form-control-feedback">
+                            <i class="icon-user-check text-muted"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input id="txtCPFRegister" type="text" class="form-control" placeholder="Seu CPF">
+                        <div class="form-control-feedback">
+                            <i class="icon-user-check text-muted"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input id="txtPassWordRegister" type="password" class="form-control" placeholder="Crie sua senha">
+                        <div class="form-control-feedback">
+                            <i class="icon-user-lock text-muted"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group has-feedback has-feedback-left">
+                        <input id="txtEmailRegister" type="text" class="form-control" placeholder="Seu email">
+                        <div class="form-control-feedback">
+                            <i class="icon-mention text-muted"></i>
+                        </div>
+                    </div>
+                    
+                    <!-- #endregion -->
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+
+                    <input id="btnRegister" type="button" class="btn bg-blue btn-block" value="REGISTRAR" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- /tabbed form -->
+
+</div>
+
+<script src="~/Scripts/MeusScripts/AdmLoginIndex.js"></script>
+<!-- /content area -->

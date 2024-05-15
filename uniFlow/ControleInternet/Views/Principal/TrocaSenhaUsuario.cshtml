@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "TrocaSenhaUsuario";
+    Layout = "~/Views/Shared/_LayoutSistema.cshtml";
+}
+
+@{ var userLogado = (ControleInternet.Models.Usuario)HttpContext.Current.Session["USUARIOLOGADO"];}
+<!-- Content area -->
+<div class="content">
+
+    <!-- Simple login form -->
+    <form>
+        <div class="panel panel-body login-form">
+            <div class="text-center">
+                <div class="icon-object border-slate-300 text-slate-300"><i class="icon-reading"></i></div>
+                <h5 class="content-group">Trocar a senha de acesso<small class="display-block">Informe suas credenciais para alterar a senha</small></h5>
+            </div>
+
+            <div class="form-group has-feedback has-feedback-left">
+                <input id="txtEmail" type="text" class="form-control" value="@userLogado.Email" disabled="disabled">
+                <div class="form-control-feedback">
+                    <i class="icon-lock2 text-muted"></i>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback has-feedback-left">
+                <input id="txtSenhaAtual" type="password" class="form-control" placeholder="Senha Atual">
+                <div class="form-control-feedback">
+                    <i class="icon-lock2 text-muted"></i>
+                </div>
+            </div>
+
+            <div class="form-group has-feedback has-feedback-left">
+                <input id="txtNovaSenha" type="password" class="form-control" placeholder="Nova Senha">
+                <div class="form-control-feedback">
+                    <i class="icon-lock2 text-muted"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <input id="btnTrocaSenha" type="button" class="btn btn-primary" value="Confirmar" />
+                <input id="btnCancelaTrocaSenha" type="button" class="btn btn-danger" value="Cancelar" />
+            </div>
+
+            <div class="text-center">
+            </div>
+        </div>
+    </form>
+    <!-- /simple login form -->
+
+</div>
+<!-- /content area -->

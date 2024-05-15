@@ -1,0 +1,166 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UniFLOW - Home</title>
+
+    @*Global stylesheets*@
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/icons/icomoon/styles.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/core.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/components.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/colors.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/TesteCardUsuario.css" rel="stylesheet" />
+
+    @{ var userLogado = (ControleInternet.Models.Usuario)HttpContext.Current.Session["USUARIOLOGADO"];}
+
+    @*/global stylesheets
+        Core JS files*@
+    <script type="text/javascript" src="~/assets/js/plugins/loaders/pace.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/libraries/jquery.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/core/libraries/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/loaders/blockui.min.js"></script>
+
+    @*/core JS files
+        Theme JS files*@
+    <script type="text/javascript" src="~/assets/js/core/app.js"></script>
+    @*/theme JS files*@
+
+
+
+    <!-- Theme JS files -->
+    <script type="text/javascript" src="~/assets/js/plugins/ui/moment/moment.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/pickers/datepicker.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/pagination/bootpag.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/pagination/bs_pagination.min.js"></script>
+    <script type="text/javascript" src="~/assets/js/plugins/pagination/datepaginator.min.js"></script>
+
+    <script type="text/javascript" src="~/assets/js/pages/components_pagination.js"></script>
+
+    <script src="~/Scripts/MeusScripts/jquery.mask.min.js"></script>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpaca/1.5.24/alpaca.min.js"></script>
+    <script src="~/assets/js/plugins/notifications/sweet_alert.min.js"></script>
+    <script src="~/assets/js/pages/components_modals.js"></script>
+
+</head>
+
+<body>
+    @*Main navbar*@
+    <div class="navbar navbar-inverse">
+        <div class="navbar-header">
+        </div>
+
+        <div class="navbar-collapse collapse" id="navbar-mobile">
+            <div class="navbar-right">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown dropdown-user">
+                        <a class="dropdown-toggle" data-toggle="dropdown">
+                            <img src="~/assets/images/placeholder.jpg" alt="">
+                            <span id="txtNomeUsuarioLogadoDireito">@Html.Label(userLogado.Nome)</span>
+                            <i class="caret"></i>
+                        </a>
+
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            @*<li><a id="ChamaDadosPessoais"><i class="icon-user"></i>Dados Pessoais</a></li>*@
+                            <li><a id="ChamaTrocaSenha"><i class="icon-cog5"></i>Trocar senha</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/"><i class="icon-switch2"></i> Logout</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    @*/main navbar
+        Page container*@
+    <div class="page-container">
+
+        @*Page content*@
+        <div class="page-content">
+
+
+            @*Main sidebar*@
+            <div class="sidebar sidebar-main">
+                <div class="sidebar-content">
+
+                    @*User menu*@
+                    <div class="sidebar-user">
+                        <div class="category-content">
+                            <div class="media">
+                                <a href="#" class="media-left"><img src="~/assets/images/brands/dribbble.png" class="img-circle img-sm" alt=""></a>
+                                <div class="media-body">
+                                    <span id="txtNomeUsuarioLogadoEsquerdo" class="media-heading text-semibold">@Html.Label(userLogado.Nome)</span>
+                                    <div class="text-size-mini text-muted">
+                                        @*<i class="icon-pin text-size-small"></i> &nbsp;@Html.Label(userLogado.CidadeEstado)*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*/user menu
+                        Main navigation*@
+                    <div class="sidebar-category sidebar-category-visible">
+                        <div class="category-content no-padding">
+                            <ul class="navigation navigation-main navigation-accordion">
+
+                                @*Main*@
+                                <li class="navigation-header"><span>Menu</span> <i class="icon-menu" title="Main pages"></i></li>
+                                <li><a href="@Url.Action("Index", "Principal")"><i class="icon-home4"></i> <span>Home</span></a></li>
+                                <li>
+                                    <a href="#"><i class="icon-stack2"></i> <span>Administração</span></a>
+                                    <ul>
+                                        <li>
+                                            <a id="btnCadastros" href="#">Cadastros</a>
+                                            <ul>
+                                                <li><a id="btnCadastrarUsuarios" href="@Url.Action("CadastroUsuario", "Usuario")">Cadastrar Usuários</a></li>
+                                                <li><a id="btnCadastrarUsuarios" href="@Url.Action("CadastroAluno", "Aluno")">Cadastrar Alunos</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a id="btnCadastros" href="#">Listas</a>
+                                            <ul>
+                                                @*<li><a id="btnGerenciarAluno" href="@Url.Action("ListarAluno", "Usuário")">Listar Aluno</a></li>*@
+                                                <li><a id="btnGerenciarAluno" href="@Url.Action("ListarAluno", "Aluno")">Listar Aluno</a></li>
+                                                <li><a id="btnGerenciarUsuario" href="@Url.Action("ListarUsuario", "Usuario")">Listar Usuario</a></li>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <ul>
+                                    <li><a id="btnGerenciarAluno" href="@Url.Action("ControleAcesso", "Aluno")">Controle de Acesso</a></li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    @*/main navigation*@
+
+                </div>
+            </div>
+            @*/main sidebar*@
+            <div class="content-wrapper">
+                @RenderBody()
+                <!--#endregion-->
+                @*/main content*@
+
+            </div>
+            @*/page content*@
+
+        </div>
+        @*/page container*@
+        <script src="~/Scripts/MeusScripts/Global.js"></script>
+        <script src="~/Scripts/MeusScripts/AdmLoginIndex.js"></script>
+        <script src="~/Scripts/MeusScripts/AdmUsuario.js"></script>
+        <script src="~/Scripts/MeusScripts/AdmAluno.js"></script>
+        <script src="~/Scripts/MeusScripts/AdmListarUsuario.js"></script>
+        <script src="~/Scripts/MeusScripts/AdmListarAluno.js"></script>
+        <script src="~/Scripts/MeusScripts/AdmEditarUsuario.js"></script>
+        <script src="~/Scripts/MeusScripts/AdmEditarAluno.js"></script>
+        <script src="~/Scripts/MeusScripts/AdmControleAcesso.js"></script>
+</body>
+</html>
