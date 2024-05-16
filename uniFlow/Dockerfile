@@ -3,8 +3,8 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
 
 # Restaurar e compilar o código
-COPY ["ControleInternet/uniFlow.csproj", "uniFlow/"]
-RUN dotnet restore "uniFlow/uniFlow.csproj"
+COPY ["ControleInternet/uniFlow.csproj", "."]
+RUN dotnet restore "uniFlow.csproj"
 COPY . .
 RUN msbuild "uniFlow.csproj" /p:Configuration=Release /p:OutputPath=/app/build
 
