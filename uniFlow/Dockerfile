@@ -1,5 +1,5 @@
 # Estágio de construção
-FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS build
+FROM http://mcr.microsoft.com/dotnet/aspnet:7.0 AS build
 WORKDIR /main
 
 # Restaurar e copiar arquivos de projeto
@@ -11,12 +11,12 @@ COPY . .
 RUN msbuild "uniFlow.csproj" /p:Configuration=Release /p:OutputPath=/app/build
 
 # Etapa de publicação
-FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS publish
+FROM http://mcr.microsoft.com/dotnet/aspnet:7.0 AS publish
 WORKDIR /inetpub/wwwroot
 COPY --from=build /app/build .
 
 # Configuração final
-FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS final
+FROM http://mcr.microsoft.com/dotnet/aspnet:7.0 AS final
 WORKDIR /inetpub/wwwroot
 COPY --from=publish /inetpub/wwwroot .
 
