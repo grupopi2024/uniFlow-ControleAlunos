@@ -271,6 +271,7 @@
     <Compile Include="Models\AlunoControleAcesso.cs" />
     <Compile Include="Models\AlunoRA.cs" />
     <Compile Include="Models\ControleAcesso.cs" />
+    <Compile Include="Models\DataFrequencia.cs" />
     <Compile Include="Models\EntradaSaidaAluno.cs" />
     <Compile Include="Models\UsuarioCPF.cs" />
     <Compile Include="Models\TrocaSenhaUsuario.cs" />
@@ -2769,6 +2770,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\MeusScripts\AdmAluno.js" />
+    <Content Include="Scripts\MeusScripts\AdmControleFrequencia.js" />
     <Content Include="Scripts\MeusScripts\AdmEditarAluno.js" />
     <Content Include="Scripts\MeusScripts\AdmControleAcesso.js" />
     <Content Include="Scripts\MeusScripts\AdmListarAluno.js" />

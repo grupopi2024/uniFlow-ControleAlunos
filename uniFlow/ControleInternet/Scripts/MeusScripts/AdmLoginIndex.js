@@ -107,7 +107,7 @@ function ErroLoginUser(json) {
 function SucessoTrocaSenha(json) {
     alert(json.retorno);
     if (json.retorno == "Senha alterada com sucesso") {
-        window.location.assign("../Principal/Principal");
+        window.location.assign("../Principal/Index");
     } else {
         window.location.assign("/Principal/TrocaSenhaUsuario");
     }

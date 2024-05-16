@@ -72,4 +72,4 @@ namespace ControleInternet.ConexaoBD
     }
 }
 
-//< add name = "conexaoMongoDB" connectionString = "mongodb+srv://uniflow:uniflow@cluster0.tbdzh2s.mongodb.net/" />
+//< add name = "conexaoMongoDB" connectionString = "mongodb+srv://uniflowdb:uniflowdb@cluster0.tbdzh2s.mongodb.net/" />

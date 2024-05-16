@@ -11,6 +11,6 @@ namespace ControleInternet.Models
         public DateTime DataHoraSaida { get; set; }
         public string CPFEntrada { get; set; }
         public string CPFSaida { get; set; }
-        public DateTime DataCadastro { get; set; }
+        public string DataCadastro { get; set; }
     }
 }

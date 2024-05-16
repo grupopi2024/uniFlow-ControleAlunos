@@ -5,85 +5,82 @@
 }
 
 
-<!-- Basic datatable -->
-<div class="panel panel-flat">
-    <div class="panel-heading">
-        <h5 class="panel-title">Lista Aluno</h5>
-        <div class="heading-elements">
-            <ul class="icons-list">
-                <li><a data-action="collapse"></a></li>
-                <li><a data-action="reload"></a></li>
-                <li><a data-action="close"></a></li>
-            </ul>
-        </div>
+<!-- Centered forms -->
+<div class="row">
+    <div class="col-md-6"></div>
+    <div class="col-md-10">
+
+        <form id="frmListarFrequencia" class="form-validate-jquery" action="#" novalidate="novalidate">
+            <div class="panel panel-flat">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-md-12 col-md-offset-1">
+                            <h4 class="panel-title">Controle de Frequencia</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input id="txtPesquisarControleFrequencia" type="text" class="form-control" placeholder="Pesquisar" oninput="FiltrarTabelaControleFrequencia()">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+
+                                        <select id="txtTipoDePesquisaControleFrequencia" class="form-control">
+                                            <option value="0">Nome</option>
+                                            <option value="1">RA</option>
+                                            <option value="2">Série</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <input id="txtDataParametro" class="form-control" type="date" name="txtDataParametro">
+                                </div>
+                                <div class="col-md-2">
+                                        <button id="btnConfirmarCadastroAluno" type="button" class="btn btn-success sweet-btn" onclick="carregaControleFrequencia()">
+                                            Pesquisar
+                                        </button>
+                                    </div>
+                                </div>
+                            <div class="row">
+
+                                <!-- Scrollable table -->
+                                <div id="divAlunoFrequencia" class="panel panel-flat">
+                                    <div class="panel-heading">
+                                        <h6 class="panel-title">Alunos</h6>
+                                    </div>
+
+                                    <div class="table-responsive pre-scrollable" style="overflow-y: auto;">
+                                        <table class="table" id="tableControleFrequencia">
+                                            <thead>
+                                                <tr>
+                                                    <th>RA</th>
+                                                    <th>Nome</th>
+                                                    <th>Série</th>
+                                                    <th>Data Entrada</th>
+                                                    <th>Data Saída</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- /scrollable table -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-
-    <div class="panel-body">
-        @*<code>DataTables</code>*@
-
-    </div>
-    <input type="search" class="" placeholder="Buscar..." aria-controls="DataTables_Table_0">
-
-    <table class="table datatable-basic">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>RA</th>
-                <th>Série</th>
-                <th>Data</th>
-                <th>Hora</th>
-                <th>Status</th>
-                <th class="text-center">Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Joãozinho</td>
-                <td>12345</td>
-                <td>1º Ano A</td>
-                <td>22 Jun 2000</td>
-                <td>18:30 h</td>
-                <td><span class="label label-success">Presente</span></td>
-                <td class="text-center">
-                    <ul class="icons-list">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="icon-menu9"></i>
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
-                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
-                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-            <tr>
-                <td>Pedrinho</td>
-                <td>54321</td>
-                <td>2º Ano A</td>
-                <td>12 Fev 2000</td>
-                <td>18:35 h</td>
-                <td><span class="label label-default">Ausente</span></td>
-                <td class="text-center">
-                    <ul class="icons-list">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="icon-menu9"></i>
-                            </a>
-
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li><a href="#"><i class="icon-file-pdf"></i> Export to .pdf</a></li>
-                                <li><a href="#"><i class="icon-file-excel"></i> Export to .csv</a></li>
-                                <li><a href="#"><i class="icon-file-word"></i> Export to .doc</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 </div>
-<!-- /basic datatable -->
+<!-- /form centered -->

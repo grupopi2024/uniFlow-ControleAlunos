@@ -1,5 +1,6 @@
 ﻿using ControleInternet.DLL;
 using ControleInternet.Models;
+using System;
 using System.Collections.Generic;
 
 namespace ControleInternet.BLL
@@ -17,6 +18,11 @@ namespace ControleInternet.BLL
         public List<AlunoControleAcesso> ListarControleAcesso()
         {
             return dalAluno.ListarControleAcesso();
+        }
+
+        public List<AlunoControleAcesso> ListarControleFrequencia(DateTime data)
+        {
+            return dalAluno.ListarControleFrequencia(data);
         }
     }
 }

@@ -9,6 +9,8 @@
         public string DataHoraEntrada { get; set; }
         public string DataHoraSaida { get; set; }
         public string CPFEntrada { get; set; }
+        public string UsuarioEntrada { get; set; }
         public string CPFSaida { get; set; }
+        public string UsuarioSaida { get; set; }
     }
 }

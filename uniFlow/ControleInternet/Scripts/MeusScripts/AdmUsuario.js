@@ -157,3 +157,6 @@ function erroExcluirUsuario() {
     alert("Erro ao excluir usuário");
 }
 
+function cancelarCadastrarUsuario() {
+    window.location.assign("../Principal/Index");
+}

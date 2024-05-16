@@ -65,7 +65,7 @@ namespace ControleInternet.DAL
 
                 var filtroFrequencia = Builders<ControleAcesso>.Filter.And(
                     Builders<ControleAcesso>.Filter.Eq(x => x.RA, request.RA),
-                    Builders<ControleAcesso>.Filter.Gte(x => x.DataCadastro, dataAtualMeiaNoite)
+                    Builders<ControleAcesso>.Filter.Gte(x => x.DataCadastro, dataAtualMeiaNoite.ToString())
                 );
 
                 var frequenciaBD = colecaoFrequencia.Find(filtroFrequencia).FirstOrDefault();
@@ -85,7 +85,7 @@ namespace ControleInternet.DAL
                     {
                         CPFEntrada = request.CPF,
                         RA = request.RA,
-                        DataCadastro = DateTime.Now,
+                        DataCadastro = dataAtualMeiaNoite.ToString(),
                         DataHoraEntrada = DateTime.Now,
                     };
 
@@ -113,7 +113,7 @@ namespace ControleInternet.DAL
 
                 var filtroFrequencia = Builders<ControleAcesso>.Filter.And(
                     Builders<ControleAcesso>.Filter.Eq(x => x.RA, request.RA),
-                    Builders<ControleAcesso>.Filter.Gte(x => x.DataCadastro, dataAtualMeiaNoite)
+                    Builders<ControleAcesso>.Filter.Gte(x => x.DataCadastro, dataAtualMeiaNoite.ToString())
                 );
 
                 var frequenciaBD = colecaoFrequencia.Find(filtroFrequencia).FirstOrDefault();

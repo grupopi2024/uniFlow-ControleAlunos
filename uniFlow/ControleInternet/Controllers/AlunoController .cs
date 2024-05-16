@@ -1,6 +1,7 @@
 ﻿using ControleInternet.BLL;
 using ControleInternet.Models;
 using Newtonsoft.Json;
+using System;
 using System.Web.Mvc;
 
 namespace ControleInternet.Controllers
@@ -29,6 +30,10 @@ namespace ControleInternet.Controllers
             return View();
         }
         public ActionResult EditarAluno()
+        {
+            return View();
+        }
+        public ActionResult FrequenciaAluno()
         {
             return View();
         }
@@ -95,6 +100,17 @@ namespace ControleInternet.Controllers
         public ActionResult GetControleAcesso()
         {
             var ret = bllListarAluno.ListarControleAcesso();
+
+            return Json(new
+            {
+                retorno = ret
+            });
+        }
+
+        [HttpPost]
+        public ActionResult GetControleFrequencia(DataFrequencia request)
+        {
+            var ret = bllListarAluno.ListarControleFrequencia(request.Data);
 
             return Json(new
             {

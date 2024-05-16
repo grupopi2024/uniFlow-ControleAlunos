@@ -48,6 +48,9 @@ function limparCamposTelaCadastroAluno() {
     txtNomeCompletoCadastroAluno.value = "";
     txtEmailCadastroAluno.value = "";
     txtTelefoneCadastroAluno.value = "";
-    txtRegistroAcademico.value = "";
-    
+    txtRegistroAcademico.value = "";   
+}
+
+function cancelarCadastrarAluno() {
+    window.location.assign("../Principal/Index");
 }
