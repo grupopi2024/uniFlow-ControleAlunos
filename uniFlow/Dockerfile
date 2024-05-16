@@ -7,7 +7,8 @@ WORKDIR /main
 COPY ["ControleInternet/uniFlow.csproj", "."]
 RUN dotnet restore "uniFlow.csproj"
 COPY . .
-RUN dotnet build "uniFlow.csproj" -c Release -o /app/build
+#RUN dotnet build "uniFlow.csproj" -c Release -o /app/build
+RUN msbuild "uniFlow.csproj" /p:Configuration=Release /p:OutputPath=/app/build
 
 FROM build AS publish
 RUN dotnet publish "uniFlow.csproj" -c Release -o /app/publish
