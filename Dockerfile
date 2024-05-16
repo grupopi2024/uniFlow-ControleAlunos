@@ -2,23 +2,22 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
 EXPOSE 80
 
-# Estágio de construção
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS build
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /main
-
-# Restaurar e copiar arquivos de projeto
-COPY ["uniFlow/ControleInternet/uniFlow.csproj", "uniFlow/"]
-RUN dotnet restore "uniFlow/uniFlow.csproj"
-
-# Copiar e compilar o código
+COPY ["uniFlow/ControleInternet/uniFlow.csproj", "."]
+RUN dotnet restore "uniFlow/ControleInternet/uniFlow.csproj"
 COPY . .
-RUN dotnet build "uniFlow/uniFlow.csproj" -c Release -o /app/build
+
+RUN dotnet build "uniFlow/ControleInternet/uniFlow.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish"uniFlow/uniFlow.csproj" -c Release -o /app/publish
+RUN dotnet publish"uniFlow/ControleInternet/uniFlow.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-ENTRYPOINT ["dotnet", "uniFlow.dll"]
+ENTRYPOINT ["dotnet", "uniFlow.dll"]
