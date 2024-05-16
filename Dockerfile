@@ -1,5 +1,5 @@
 # Estágio de construção
-FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS build
+FROM http://mcr.microsoft.com/windows/servercore:ltsc2019 AS build
 WORKDIR /app
 
 # Restaurar e copiar arquivos de projeto
@@ -11,7 +11,7 @@ COPY . .
 RUN msbuild uniFlow.csproj /p:Configuration=Release /p:OutputPath=out
 
 # Estágio de publicação
-FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 AS publish
+FROM http://mcr.microsoft.com/windows/servercore:ltsc2019 AS publish
 WORKDIR /inetpub/wwwroot
 COPY --from=build /app/out .
 
