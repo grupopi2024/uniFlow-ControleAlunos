@@ -9,7 +9,7 @@
 });
 
 function editarUsuario() {
-    debugger
+    
     $('#btnEditarUsuario').off('click');//id componente
     $('#btnEditarUsuario').on('click', function () {
         alert("editar");
@@ -24,7 +24,7 @@ function formataMascaraCadastroTelefoneUsuario() {
 
 
 function cadastrarUsuario(id) {
-    debugger
+    
     let txtSenha = $("#txtSenhaCadastroUsuario").val();
     let txtConfirmaSenha = $("#txtConfirmarSenhaCadastroUsuario").val();
     let slcFuncao = document.getElementById('slcFuncaoCadastroUsuario')

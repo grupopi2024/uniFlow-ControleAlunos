@@ -313,9 +313,11 @@
     <Content Include="assets\images\banner01.jpg" />
     <Content Include="assets\images\brands\adwords.png" />
     <Content Include="assets\images\brands\amazon.png" />
+    <Content Include="assets\images\brands\avatar-do-usuario.png" />
     <Content Include="assets\images\brands\bing.png" />
     <Content Include="assets\images\brands\dribbble.png" />
     <Content Include="assets\images\brands\facebook.png" />
+    <Content Include="assets\images\brands\pngwing.com.png" />
     <Content Include="assets\images\brands\spotify.png" />
     <Content Include="assets\images\brands\tripadvisor.png" />
     <Content Include="assets\images\brands\twitter.png" />
