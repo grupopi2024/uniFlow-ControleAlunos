@@ -6,7 +6,7 @@ WORKDIR /app
 COPY ["ControleInternet/uniFlow.csproj", "uniFlow/"]
 RUN dotnet restore "uniFlow/uniFlow.csproj"
 COPY . .
-RUN dotnet publish "uniFlow/uniFlow.csproj" -c Release -o /app/build
+RUN msbuild "uniFlow.csproj" /p:Configuration=Release /p:OutputPath=/app/build
 
 # Etapa de publicação
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS publish
