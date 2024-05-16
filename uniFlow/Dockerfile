@@ -4,7 +4,7 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /main
-COPY ["uniFlow/ControleInternet/uniFlow.csproj", "."]
+COPY ["ControleInternet/uniFlow.csproj", "."]
 RUN dotnet restore "uniFlow.csproj"
 COPY . .
 RUN dotnet build "uniFlow.csproj" -c Release -o /app/build
