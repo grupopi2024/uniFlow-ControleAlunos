@@ -3,18 +3,18 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS build
 WORKDIR /app
 
 # Restaurar e copiar arquivos de projeto
-COPY uniFlow/ControleInternet/*.csproj ./
-RUN dotnet restore uniFlow.csproj
+COPY ["uniFlow/ControleInternet/uniFlow.csproj", "uniFlow/ControleInternet/"]
+RUN dotnet restore "uniFlow/ControleInternet/uniFlow.csproj"
 
 # Copiar e compilar o código
 COPY . .
-RUN msbuild uniFlow.csproj /p:Configuration=Release /p:OutputPath=out
+RUN dotnet build "uniFlow/ControleInternet/uniFlow.csproj" -c Release -o /app/build
 
-# Estágio de publicação
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS publish
-WORKDIR /inetpub/wwwroot
-COPY --from=build /app/out .
+FROM build AS publish
+RUN dotnet publish"uniFlow/ControleInternet/uniFlow.csproj" -c Release -o /app/publish
 
-# Configurações finais
-EXPOSE 80
-ENTRYPOINT ["C:\\inetpub\\wwwroot\\uniFlow.exe"]
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+
+ENTRYPOINT ["dotnet", "uniFlow.dll"]
