@@ -16,7 +16,7 @@ WORKDIR /inetpub/wwwroot
 COPY --from=build /app/build .
 
 # Configuração final
-FROM http://mcr.microsoft.com/dotnet/aspnet:7.0 AS final
+FROM http://mcr.microsoft.com/dotnet/sdk:7.0 AS final
 WORKDIR /inetpub/wwwroot
 COPY --from=publish /inetpub/wwwroot .
 
