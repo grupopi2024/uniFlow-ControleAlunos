@@ -1,6 +1,10 @@
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+
 # Estágio de construção
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS build
-WORKDIR /app
+WORKDIR /main
 
 # Restaurar e copiar arquivos de projeto
 COPY ["uniFlow/ControleInternet/uniFlow.csproj", "uniFlow/ControleInternet/"]
