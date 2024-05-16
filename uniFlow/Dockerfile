@@ -11,12 +11,12 @@ COPY . .
 RUN msbuild "uniFlow.csproj" /p:Configuration=Release /p:OutputPath=/app/build
 
 # Etapa de publicação
-FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 AS publish
+FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS publish
 WORKDIR /inetpub/wwwroot
 COPY --from=build /app/build .
 
 # Configuração final
-FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 AS final
+FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS final
 WORKDIR /inetpub/wwwroot
 COPY --from=publish /inetpub/wwwroot .
 
