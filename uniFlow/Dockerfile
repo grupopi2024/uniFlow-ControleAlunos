@@ -16,7 +16,7 @@ WORKDIR /inetpub/wwwroot
 COPY --from=build /app/build .
 
 # Configuração final
-FROM mcr.microsoft.com/windows/nanoserver:1809 AS final
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 AS final
 WORKDIR /inetpub/wwwroot
 COPY --from=publish /inetpub/wwwroot .
 
