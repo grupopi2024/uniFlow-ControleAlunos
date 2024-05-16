@@ -1,19 +1,23 @@
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
-WORKDIR /app
-EXPOSE 80
-
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+# Estágio de construção
+FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS build
 WORKDIR /main
-COPY ["ControleInternet/uniFlow.csproj", "."]
-RUN dotnet restore "uniFlow.csproj"
+
+# Restaurar e copiar arquivos de projeto
+COPY ["ControleInternet/uniFlow.csproj", "uniFlow/"]
+RUN nuget restore "uniFlow.csproj"
+
+# Copiar e compilar o código
 COPY . .
-#RUN dotnet build "uniFlow.csproj" -c Release -o /app/build
 RUN msbuild "uniFlow.csproj" /p:Configuration=Release /p:OutputPath=/app/build
 
-FROM build AS publish
-RUN dotnet publish "uniFlow.csproj" -c Release -o /app/publish
+# Etapa de publicação
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8 AS publish
+WORKDIR /inetpub/wwwroot
+COPY --from=build /app/build .
 
-FROM base AS final
-WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "uniFlow.dll"]
+# Configuração final
+FROM mcr.microsoft.com/windows/nanoserver:1809 AS final
+WORKDIR /inetpub/wwwroot
+COPY --from=publish /inetpub/wwwroot .
+
+ENTRYPOINT ["C:\\inetpub\\wwwroot\\uniFlow.exe"]
