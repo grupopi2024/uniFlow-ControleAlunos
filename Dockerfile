@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Restaurar e copiar arquivos de projeto
 COPY uniFlow/ControleInternet/*.csproj ./
-RUN nuget restore uniFlow.csproj
+RUN dotnet restore uniFlow.csproj
 
 # Copiar e compilar o código
 COPY . .
